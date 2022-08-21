@@ -94,7 +94,6 @@ private extension FriendsViewController {
         tableview.showsVerticalScrollIndicator = false
         tableview.delegate = self
         tableview.dataSource = self
-        view.addSubview(tableview)
     }
     
     func setupConstraints() {

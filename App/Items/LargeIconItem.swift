@@ -51,7 +51,6 @@ class LargeIconItem: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        contentView.backgroundColor = #colorLiteral(red: 0.9593362212, green: 0.9628924727, blue: 0.9751229882, alpha: 1)
         setupSubviews()
         updateColors()
     }

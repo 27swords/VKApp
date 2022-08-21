@@ -83,10 +83,10 @@ private extension LoginViewController {
         urlComponents.host = "oauth.vk.com"
         urlComponents.path = "/authorize"
         urlComponents.queryItems = [
-        URLQueryItem(name: "client_id", value: "51397857"),
+        URLQueryItem(name: "client_id", value: "51407183"),
         URLQueryItem(name: "display", value: "mobile"),
         URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-        URLQueryItem(name: "scope", value: "offline, friends, photos, groups"),
+        URLQueryItem(name: "scope", value: "offline, friends, photos, groups, wall"),
         URLQueryItem(name: "response_type", value: "token"),
         URLQueryItem(name: "revoke", value: "0"),
         URLQueryItem(name: "v", value: "5.131")
