@@ -26,6 +26,14 @@ final class MyGroupsViewController: UIViewController {
         return view
     }()
     
+    private var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(refresh),
+                                 for: .valueChanged)
+        return refreshControl
+    }()
+    
     //MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +41,11 @@ final class MyGroupsViewController: UIViewController {
         setupConstraints()
         createNotificarionToken()
         service.loadGroup()
-        
     }
     
-    //MARK: - Objc Methods
-    @objc func addButtonTapped() {
-        let view = AllGroupsVC()
-        view.delegate = self
-        view.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(view, animated: true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateTableView()
     }
 }
 
@@ -52,7 +56,20 @@ extension MyGroupsViewController: AddGroupDelegate {
 
 //MARK: - Extension UITableView
 extension MyGroupsViewController: UITableViewDataSource, UITableViewDelegate {
-    
+    //MARK: - Objc Methods
+    @objc func addButtonTapped() {
+        let view = AllGroupsVC()
+        view.delegate = self
+        view.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+   
+    @objc private func refresh(sender: UIRefreshControl) {
+        service.loadGroup()
+        tableView.reloadData()
+        sender.endRefreshing()
+    }
+
     //MARK: - Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         groupResponse?.count ?? 0
@@ -74,6 +91,30 @@ extension MyGroupsViewController: UITableViewDataSource, UITableViewDelegate {
 
 //MARK: - Private Extensions
 private extension MyGroupsViewController {
+
+    //MARK: - Animations
+    private func animateTableView() {
+        tableView.reloadData()
+        
+        let cells = tableView.visibleCells
+        let tableViewHeight = tableView.bounds.height
+        var delay: Double = 0
+        
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+            
+            UIView.animate(withDuration: 1.5,
+                           delay: delay * 0.05,
+                           usingSpringWithDamping: 0.8,
+                           initialSpringVelocity: 0,
+                           options: .curveEaseInOut,
+                           animations: { cell.transform = CGAffineTransform.identity })
+            delay += 1
+        }
+    }
+}
+
+private extension MyGroupsViewController {
     func setupTableView() {
         let allGroupButton = UIBarButtonItem(title: "Добавить",
                                              style: .plain,
@@ -88,6 +129,7 @@ private extension MyGroupsViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
+        tableView.addSubview(refreshControl)
     }
     
     func setupConstraints() {

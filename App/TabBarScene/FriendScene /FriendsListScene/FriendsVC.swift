@@ -25,7 +25,13 @@ final class FriendsViewController: UIViewController {
         return view
     }()
     
-    private lazy var gradientView = GradientView()
+    private var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(refresh),
+                                 for: .valueChanged)
+        return refreshControl
+    }()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -35,10 +41,22 @@ final class FriendsViewController: UIViewController {
         friendService.loadFriends()
         createNotificationToken()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animateTableView()
+    }
 }
 
 //MARK: - Extension TableView
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+  
+    //MARK: - Objc Methods
+    @objc private func refresh(sender: UIRefreshControl) {
+        friendService.loadFriends()
+        tableview.reloadData()
+        sender.endRefreshing()
+    }
     
     //MARK: - Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,21 +102,48 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             vc.friendID = String(path ?? 0)
         }
     }
-}
 
+}
 //MARK: - Private Extension
 private extension FriendsViewController {
+
+    //MARK: - Animations
+    private func animateTableView() {
+        tableview.reloadData()
+        
+        let cells = tableview.visibleCells
+        let tableViewHeight = tableview.bounds.height
+        var delay: Double = 0
+        
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+            
+            UIView.animate(withDuration: 1.5,
+                           delay: delay * 0.05,
+                           usingSpringWithDamping: 0.8,
+                           initialSpringVelocity: 0,
+                           options: .curveEaseInOut,
+                           animations: { cell.transform = CGAffineTransform.identity })
+            delay += 1
+        }
+    }
+}
+
+private extension FriendsViewController {
     func setupTableView() {
+
         tableview.backgroundColor = #colorLiteral(red: 0.9256621003, green: 0.9306682944, blue: 0.9508803487, alpha: 1)
         tableview.rowHeight = UITableView.automaticDimension
         tableview.separatorStyle = .none
         tableview.register(LargeIconItem.self, forCellReuseIdentifier: "Cell")
         tableview.delegate = self
         tableview.dataSource = self
+        
+        tableview.addSubview(refreshControl)
+        view.addSubview(tableview)
     }
     
     func setupConstraints() {
-        view.addSubview(tableview)
         NSLayoutConstraint.activate([
             tableview.topAnchor.constraint(equalTo: view.topAnchor),
             tableview.leftAnchor.constraint(equalTo: view.leftAnchor),

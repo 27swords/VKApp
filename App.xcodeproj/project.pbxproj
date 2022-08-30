@@ -29,7 +29,6 @@
 		4E6CD467289571C3005C09AC /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CD466289571C3005C09AC /* PhotoCollectionViewCell.swift */; };
 		4E87B5B9289409D400068B9F /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E87B5B8289409D400068B9F /* Singleton.swift */; };
 		4E87B5BD28940D4700068B9F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E87B5BC28940D4700068B9F /* TabBarViewController.swift */; };
-		4EA45EDF28BE2EA70059624C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA45EDE28BE2EA70059624C /* GradientView.swift */; };
 		4EB78C29289405FF00353A56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB78C28289405FF00353A56 /* AppDelegate.swift */; };
 		4EB78C2D289405FF00353A56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB78C2C289405FF00353A56 /* LoginViewController.swift */; };
 		4EB78C33289405FF00353A56 /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EB78C31289405FF00353A56 /* App.xcdatamodeld */; };
@@ -60,7 +59,6 @@
 		4E6CD466289571C3005C09AC /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E87B5B8289409D400068B9F /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		4E87B5BC28940D4700068B9F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		4EA45EDE28BE2EA70059624C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4EB78C25289405FF00353A56 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB78C28289405FF00353A56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB78C2C289405FF00353A56 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				4E6CD437289528A0005C09AC /* LargeIconItem.swift */,
-				4EA45EDE28BE2EA70059624C /* GradientView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -175,6 +172,7 @@
 			children = (
 				4E6CD44B28953BFC005C09AC /* ServiceLayer */,
 				4E6CD434289524C6005C09AC /* FriendsVC.swift */,
+				4E6CD45B28956934005C09AC /* FriendsProfileScene */,
 			);
 			path = FriendsListScene;
 			sourceTree = "<group>";
@@ -256,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				4E6CD45A28956904005C09AC /* FriendsListScene */,
-				4E6CD45B28956934005C09AC /* FriendsProfileScene */,
 			);
 			path = "FriendScene ";
 			sourceTree = "<group>";
@@ -408,7 +405,6 @@
 				4E6CD459289568AD005C09AC /* AllGroupsVC.swift in Sources */,
 				4EB78C2D289405FF00353A56 /* LoginViewController.swift in Sources */,
 				4E6CD467289571C3005C09AC /* PhotoCollectionViewCell.swift in Sources */,
-				4EA45EDF28BE2EA70059624C /* GradientView.swift in Sources */,
 				4E87B5B9289409D400068B9F /* Singleton.swift in Sources */,
 				4E6CD4552895537B005C09AC /* RealmCacheService.swift in Sources */,
 				4EB78C33289405FF00353A56 /* App.xcdatamodeld in Sources */,
