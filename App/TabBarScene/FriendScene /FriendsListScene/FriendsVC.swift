@@ -25,6 +25,8 @@ final class FriendsViewController: UIViewController {
         return view
     }()
     
+    private lazy var gradientView = GradientView()
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,11 +89,10 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - Private Extension
 private extension FriendsViewController {
     func setupTableView() {
-        tableview.backgroundColor = #colorLiteral(red: 0.8283717036, green: 0.9270053506, blue: 0.8875589371, alpha: 1)
+        tableview.backgroundColor = #colorLiteral(red: 0.9256621003, green: 0.9306682944, blue: 0.9508803487, alpha: 1)
         tableview.rowHeight = UITableView.automaticDimension
         tableview.separatorStyle = .none
         tableview.register(LargeIconItem.self, forCellReuseIdentifier: "Cell")
-        tableview.showsVerticalScrollIndicator = false
         tableview.delegate = self
         tableview.dataSource = self
     }

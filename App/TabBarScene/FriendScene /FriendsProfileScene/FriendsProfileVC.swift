@@ -79,7 +79,7 @@ extension FriendsProfileVC: UICollectionViewDelegate, UICollectionViewDataSource
 //MARK: - Private Extensions
 private extension FriendsProfileVC {
     func setupCollectionview() {
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = #colorLiteral(red: 0.9256621003, green: 0.9306682944, blue: 0.9508803487, alpha: 1)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")

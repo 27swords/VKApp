@@ -9,10 +9,9 @@ import UIKit
 
 class LargeIconItem: UITableViewCell {
     
-    //MARK: - Outlets
+    //MARK: - Outlets    
     private lazy var backgroundCell: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
         view.layer.cornerRadius = 12
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -78,7 +77,7 @@ private extension LargeIconItem {
     func updateColors() {
         firstNameLabel.textColor = UIColor.black
         lastNameLabel.textColor = UIColor.black
-        contentView.backgroundColor = #colorLiteral(red: 0.8265798688, green: 0.9259606004, blue: 0.8862180114, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 0.9256621003, green: 0.9306682944, blue: 0.9508803487, alpha: 1)
         backgroundCell.backgroundColor = .white
     }
     

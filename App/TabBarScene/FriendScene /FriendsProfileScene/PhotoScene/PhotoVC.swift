@@ -28,29 +28,7 @@ class PhotoVC: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
-    
-    private let likeView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.06442873475, green: 0.06442873475, blue: 0.06442873475, alpha: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "UnLike"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let likeCounterLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "0"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+        
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +85,6 @@ private extension PhotoVC {
                                                            action: #selector(backtapped(sender:)))
         navigationItem.leftBarButtonItem?.tintColor = .gray
         view.addSubview(collectionView)
-        view.addSubview(likeView)
-        likeView.addSubview(likeButton)
-        likeView.addSubview(likeCounterLabel)
     }
     
     func setupConstraints() {
@@ -117,25 +92,7 @@ private extension PhotoVC {
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            
-            likeView.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            likeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            likeView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            likeView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            likeView.heightAnchor.constraint(equalToConstant: 50),
-            
-            likeButton.centerXAnchor.constraint(equalTo: likeView.centerXAnchor),
-            likeButton.centerYAnchor.constraint(equalTo: likeView.centerYAnchor),
-            likeButton.heightAnchor.constraint(equalToConstant: 50),
-            likeButton.widthAnchor.constraint(equalToConstant: 50),
-            
-            likeCounterLabel.leftAnchor.constraint(equalTo: likeButton.rightAnchor, constant: -10),
-            likeCounterLabel.rightAnchor.constraint(equalTo: likeView.rightAnchor),
-            likeCounterLabel.topAnchor.constraint(equalTo: likeView.topAnchor),
-            likeCounterLabel.bottomAnchor.constraint(equalTo: likeView.bottomAnchor),
-            likeCounterLabel.widthAnchor.constraint(equalToConstant: 50),
-            likeCounterLabel.heightAnchor.constraint(equalToConstant: 50)
-            
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 

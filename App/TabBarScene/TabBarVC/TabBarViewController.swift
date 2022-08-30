@@ -21,23 +21,20 @@ final class TabBarViewController: UITabBarController {
 private extension TabBarViewController {
     func setupTabbar() {
         tabBar.tintColor = .black
-        tabBar.barTintColor = #colorLiteral(red: 0.7850414932, green: 0.8816119525, blue: 0.8485268404, alpha: 1)
+        tabBar.barTintColor = #colorLiteral(red: 0.9256621003, green: 0.9306682944, blue: 0.9508803487, alpha: 1)
         tabBar.unselectedItemTintColor = .gray
     }
     
     func makeTabItems() {
         let groups = MyGroupsViewController()
         let friends = FriendsViewController()
-        let newsFeed = NewsFeedViewController()
         
         guard let groupsIcon = UIImage(named: "GroupsItems") else { return }
         guard let friendsIcon = UIImage(named: "FriendsItems") else { return }
-        guard let newsFeedIcon = UIImage(named: "NewsItems") else { return }
        
         let groupsScene = createNavContoroller(for: groups, title: "Группы", image: groupsIcon)
         let friendsScene = createNavContoroller(for: friends, title: "Друзья", image: friendsIcon)
-        let newsFeedScene = createNavContoroller(for: newsFeed, title: "Новости", image: newsFeedIcon)
-        viewControllers = [friendsScene, newsFeedScene, groupsScene]
+        viewControllers = [friendsScene, groupsScene]
     }
     
     func createNavContoroller(for rootViewController: UIViewController,

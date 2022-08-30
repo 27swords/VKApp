@@ -82,7 +82,7 @@ private extension MyGroupsViewController {
         )
         
         navigationItem.setRightBarButton(allGroupButton, animated: true)
-        tableView.backgroundColor = #colorLiteral(red: 0.8265798688, green: 0.9259606004, blue: 0.8862180114, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.9256621003, green: 0.9306682944, blue: 0.9508803487, alpha: 1)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(LargeIconItem.self, forCellReuseIdentifier: "Cell")
         tableView.delegate = self
