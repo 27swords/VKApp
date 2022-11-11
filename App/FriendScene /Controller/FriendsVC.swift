@@ -25,7 +25,7 @@ final class FriendsViewController: UIViewController {
         return view
     }()
     
-    private var refreshControl: UIRefreshControl = {
+    private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self,
                                  action: #selector(refresh),
@@ -44,7 +44,6 @@ final class FriendsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animateTableView()
     }
 }
 
@@ -105,30 +104,6 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 //MARK: - Private Extension
-private extension FriendsViewController {
-
-    //MARK: - Animations
-    private func animateTableView() {
-        tableview.reloadData()
-        
-        let cells = tableview.visibleCells
-        let tableViewHeight = tableview.bounds.height
-        var delay: Double = 0
-        
-        for cell in cells {
-            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
-            
-            UIView.animate(withDuration: 1.5,
-                           delay: delay * 0.05,
-                           usingSpringWithDamping: 0.8,
-                           initialSpringVelocity: 0,
-                           options: .curveEaseInOut,
-                           animations: { cell.transform = CGAffineTransform.identity })
-            delay += 1
-        }
-    }
-}
-
 private extension FriendsViewController {
     func setupTableView() {
 

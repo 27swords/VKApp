@@ -86,7 +86,7 @@ private extension LoginViewController {
         URLQueryItem(name: "client_id", value: "51413689"),
         URLQueryItem(name: "display", value: "mobile"),
         URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-        URLQueryItem(name: "scope", value: "offline, friends, photos, groups, wall"),
+        URLQueryItem(name: "scope", value: "offline, friends, photos, groups"),
         URLQueryItem(name: "response_type", value: "token"),
         URLQueryItem(name: "revoke", value: "0"),
         URLQueryItem(name: "v", value: "5.131")

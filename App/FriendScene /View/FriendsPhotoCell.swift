@@ -1,5 +1,5 @@
 //
-//  PhotoCell.swift
+//  FriendsPhotoCell.swift
 //  App
 //
 //  Created by Alexander Chervoncev on 9.08.22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PhotoCell: UICollectionViewCell {
+final class FriendsPhotoCell: UICollectionViewCell {
     
     //MARK: - Outlets
     var photoView: UIImageView = {
@@ -35,7 +35,7 @@ final class PhotoCell: UICollectionViewCell {
 }
 
 //MARK: - Private Extension
-private extension PhotoCell {
+private extension FriendsPhotoCell {
     func setupView() {
         contentView.addSubview(photoView)
     }

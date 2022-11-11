@@ -65,13 +65,13 @@ extension FriendsProfileVC: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = PhotoVC()
+        let vc = FriendsPhotoVC()
         vc.photoImages = storedImages
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let vc = segue.destination as? PhotoVC else { return }
+        guard let vc = segue.destination as? FriendsPhotoVC else { return }
         vc.photoImages = storedImages
     }
 }

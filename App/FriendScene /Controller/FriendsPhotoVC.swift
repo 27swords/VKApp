@@ -1,12 +1,12 @@
 //
-//  PhotoVC.swift
+//  FriendsPhotoVC.swift
 //  App
 //
 //  Created by Alexander Chervoncev on 9.08.22.
 //
 import UIKit
 
-class PhotoVC: UIViewController {
+class FriendsPhotoVC: UIViewController {
     
     //MARK: - Inits
     private let service = PhotoService()
@@ -39,7 +39,7 @@ class PhotoVC: UIViewController {
 }
 
 //MARK: - Extension CollctionView
-extension PhotoVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FriendsPhotoVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //MARK: - Objc methods
     @objc func backtapped(sender: UIBarButtonItem) {
@@ -53,7 +53,7 @@ extension PhotoVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PhotoCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? FriendsPhotoCell
         else {
             return UICollectionViewCell()
         }
@@ -64,21 +64,23 @@ extension PhotoVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - 10, height: UIScreen.main.bounds.width)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     }
 }
 
 //MARK: - Private Extension
-private extension PhotoVC {
+private extension FriendsPhotoVC {
     func setupCollectionview() {
         collectionView.backgroundColor = .black
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(FriendsPhotoCell.self, forCellWithReuseIdentifier: "Cell")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Назад",
                                                            style: .plain,
                                                            target: self,
