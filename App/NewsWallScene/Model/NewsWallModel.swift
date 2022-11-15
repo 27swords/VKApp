@@ -22,13 +22,37 @@ final class NewsWallModel {
     
     func newsWallSetup() {
         let news = NewsWall(
-            name: "Name Public",
-            date: "Два часа назад",
-            description: "fglkfdjgslkdjglsdkjgksdjglksdjglkhjl",
+            name: "Public 1",
+            date: "Date",
+            description: "Test description",
             imageDescription: UIImage(named: "VKLaunchScreen"),
             avatarImage: UIImage(named: "VKLaunchScreen")
         )
         
-        self.newsWall = [news]
+        let news1 = NewsWall(
+            name: "Public 2",
+            date: "Date",
+            description: "Test description",
+            imageDescription: UIImage(named: "VKLaunchScreen"),
+            avatarImage: UIImage(named: "VKLaunchScreen")
+        )
+        
+        let news2 = NewsWall(
+            name: "Public 3",
+            date: "Date",
+            description: "Test description",
+            imageDescription: UIImage(named: "VKLaunchScreen"),
+            avatarImage: UIImage(named: "VKLaunchScreen")
+        )
+        
+        let news3 = NewsWall(
+            name: "Public 4",
+            date: "Date",
+            description: "Test description",
+            imageDescription: UIImage(named: "VKLaunchScreen"),
+            avatarImage: UIImage(named: "VKLaunchScreen")
+        )
+        
+        self.newsWall = [news, news1, news2, news3]
     }
 }
