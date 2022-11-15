@@ -25,14 +25,14 @@ final class NewsWallModel {
             name: "Public 1",
             date: "Date",
             description: "Test description",
-            imageDescription: UIImage(named: "VKLaunchScreen"),
+//            imageDescription: UIImage(named: "VKLaunchScreen"),
             avatarImage: UIImage(named: "VKLaunchScreen")
         )
         
         let news1 = NewsWall(
             name: "Public 2",
             date: "Date",
-            description: "Test description",
+//            description: "Test description",
             imageDescription: UIImage(named: "VKLaunchScreen"),
             avatarImage: UIImage(named: "VKLaunchScreen")
         )
